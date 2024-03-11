@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,500;1,400&display=swap');
+
+:root {
+    --White: hsl(0, 0%, 100%);
+    --Light_Grey: hsl(217, 12%, 63%);
+    --Medium_Grey: hsl(216, 12%, 54%);
+    --Dark_Blue: hsl(213, 19%, 18%);
+    --Very_Dark_Blue: hsl(216, 12%, 8%);
+    --Orange: hsl(25, 97%, 53%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(29, 29, 29);
+    font-family: 'Overpass', sans-serif;
+    min-height: 100vh;
+    animation: breathing 5s ease-in-out infinite;
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    transition: transform 0.5s ease-out;
+    perspective: 800px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    }
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.heading {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+main {
+    height: fit-content;
+    width: fit-content;
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    animation: float 10s ease-in-out infinite;
+    perspective: 1000px;
+    backface-visibility: hidden;
+    transition: all 0.2s;
+    transform-origin: center;
+    margin: auto;
+
+}
+
+.container {
+    height: 450px;
+    width: 450px;
+    background: radial-gradient(circle at 52% 10%, var(--Dark_Blue), var(--Very_Dark_Blue) 130%);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 30px;
+}
+
+h1 {
+    color: var(--White);
+    margin-bottom: -40px;
+}
+
+p {
+    color: var(--Light_Grey);
+    font-size: 15px;
+}
+
+.rate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--Medium_Grey);
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    background: var(--Dark_Blue);
+    font-weight: 1000;
+    transition: all 0.2s;
+    opacity: 0;
+    scale: 0.5;
+}
+
+.rate:hover {
+    scale: 0.6;
+    background-color: #3b3b3b;
+    color: var(--White);
+}
+
+
+.rateFocus {
+    background: var(--Orange);
+    color: var(--White);
+}
+.ratings {
+    display: flex;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.submit {
+    width: 100%;
+    background: var(--Orange);
+    color: var(--White);
+    height: 12%;
+    border-radius: 50px;
+    border-style: none;
+    letter-spacing: 3px;
+    user-select: none;
+    transition: all 0.2s;
+}
+
+.submit:hover {
+    color: var(--Orange);
+    background: var(--White);
+}
+.star {
+    height: 45px;
+    width: 45px;
+    background-color: var(--Dark_Blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.star:hover {
+    animation: bounce 0.5s linear, glow 1s infinite;
+}
+
+
+
+  @keyframes glow {
+    0% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
+  
+  @keyframes glow-hover {
+    0% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes breathing {
+    0% {
+      background-color: #3b3b3b;
+    }
+    50% {
+      background-color: #1d1d1d;
+    }
+    100% {
+      background-color: #3b3b3b;
+    }
+  }
+  @keyframes float {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    40% {
+      transform: translate(0, 10px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(0, 10px) rotate(1deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+  }
+  
+@media only screen and (max-width: 720px) {
+    body {
+        scale: .9;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .heading {
+        letter-spacing: 15px;
+    }
+
+    .container  {
+        padding: 35px;
+        height: 450px
+    };
+
+    .rate {
+        height: 60px;
+        width: 60px;
+    }
+
+    .app {
+        height: fit-content;
+    }
+    
+    .details {
+        color: yellow;
+        display: block;
+        letter-spacing: 2px;
+        font-family: consolas;
+    }
+
+    .rate:hover {
+        color: var(--White);
+        background: var(--Orange);
+    }
+}
